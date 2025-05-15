@@ -19,39 +19,31 @@ public class Attendance {
          this.Status = Status;
      }
 
-    // Getter Methods
-     public String getEmployeeID(){
-         return EmployeeID; 
-     }
-   
-     public String getName(){
-         return Name;
-     }
-     
-     public Boolean getStatus(){
-         return Status;
-     }
-     
-     // Setter methods
-     public void setEnployeeID(String EmployeeID){
-         this.EmployeeID = EmployeeID;
-     }
-     
-     public void setName(String Name){
-         this.Name = Name;
-     }
-     
-     public void setStatus(Boolean Status){
-         this.Status = Status;
-     }
-     
-     //Display method
+// Methods
+    public String viewName() {
+        return Name;
+    }
+
+    public int viewEmployee() {
+        return Integer.parseInt(EmployeeID); // Assuming employeeID contains numeric values
+    }
+
+    public String keepRecords() {
+        return "Employee ID: " + EmployeeID + ", Name: " + Name + ", Status: " + (Status ? "Present" : "Absent");
+    }
+
+    // Display method
     public void displayInfo() {
-        System.out.println("Employee ID: " + EmployeeID);
-        System.out.println("Name: " + Name);
-        System.out.println("Status: " + (Status ? "Present" : "Absent"));
-         
-     }
+        System.out.println(keepRecords());
+    }
+
+    public static void main(String[] args) {
+        Attendance att = new Attendance("1001", "John Doe", true);
+        System.out.println(att.viewName());
+        System.out.println(att.viewEmployee());
+        att.displayInfo();
+    }
 }
+   
 
 
